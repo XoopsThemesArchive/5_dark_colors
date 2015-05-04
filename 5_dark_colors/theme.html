@@ -1,0 +1,193 @@
+<{php}>
+$ua = $_SERVER['HTTP_USER_AGENT'];
+if ((ereg("Windows",$ua) > 0) && (ereg("MSIE",$ua) > 0)) {if (ereg("MSIE 6.",$ua) > 0) {echo '';}} else {
+echo '<?xml version="1.0" encoding="'._CHARSET.'"?>';echo "\n";}
+<{/php}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_themecss}>" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/lightbox2.03.3/css/lightbox.css" /><!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript" src="<{$xoops_url}>/lightbox2.03.3/js/prototype.js"></script>
+<script type="text/javascript" src="<{$xoops_url}>/lightbox2.03.3/js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="<{$xoops_url}>/lightbox2.03.3/js/lightbox.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div class="head_wrap">
+			<div class="head_left">
+				<h1><a href="<{$xoops_url}>/" name="top" id="top"><{$xoops_sitename}></a></h1>
+				<h2><{$xoops_pagetitle}></h2>
+				<{if !$xoops_isuser}>
+					<ul>
+						<li><a href="<{$xoops_url}>/register.php">Register</a></li>
+						<li><a href="<{$xoops_url}>/user.php">User</a></li>
+					</ul>
+				<{else}>
+					<p>Hello&nbsp;<{$xoops_uname}>&nbsp;!</p>
+				<{/if}>
+			</div>
+			<div class="head_right">
+				<{if !$xoops_isuser}>
+					<fieldset>
+						<legend>Hello</legend>
+						<form action="<{$xoops_url}>/user.php" method="post" style="margin: 0px;">
+							<label for="uname_head">Name:</label>
+							<input class="input" type="text" id="uname_head" name="uname" size="16" />
+							<label for="pass_head">Pass:</label>
+							<input class="input" type="password" id="pass_head" name="pass" size="16" />
+							<input type="hidden" name="xoops_redirect" value="<{$xoops_requesturi}>" />
+							<input type="hidden" name="op" value="login" />
+							<input class="login" type="submit" value="Login" />
+						</form>
+					</fieldset>
+				<{else}>
+					<ul class="login_user">
+						<li><a href="<{$xoops_url}>/user.php">User account</a></li
+						><li><a href="<{$xoops_url}>/notifications.php">Notifications</a></li
+						><li><a href="<{$xoops_url}>/viewpmsg.php">P.M.</a></li
+						><li><a href="<{$xoops_url}>/user.php?op=logout">Logout</a></li
+						<{if $xoops_isadmin}>><li><a href="<{$xoops_url}>/admin.php">Back office</a></li<{/if}>>
+					</ul>
+				<{/if}>
+				<div class="headmenu_wrap">
+					<ul class="headmenu_1">
+						<li><a href="<{$xoops_url}>/">Home</a></li>
+						<li><a href="<{$xoops_url}>/modules/search">Site Search</a></li>
+						<li><a href="<{$xoops_url}>/modules/bulletin">Site News</a></li>
+						<li><a href="<{$xoops_url}>/modules/d3comment">d3comment</a></li>
+					</ul>
+					<ul class="headmenu_2">
+						<li><a href="<{$xoops_url}>/modules/xhnewbb">Forum</a></li>
+						<li><a href="<{$xoops_url}>/modules/mydownloads">Downloads</a></li>
+						<li><a href="<{$xoops_url}>/modules/mylinks">Web Links</a></li>
+						<li><a href="<{$xoops_url}>/modules/sitemap">Site Map</a></li>
+					</ul>
+				</div>
+				<a href="http://www.expiece.com/html/"><img src="<{$xoops_imageurl}>image/none.gif" width="1px" height="1px" /></a>
+			</div>
+			<hr />
+		</div>
+		<div id="l_clr_r_wrap">
+			<div id="centercolumn">
+				<{if $xoops_banner != "&nbsp;"}>
+					<div id="banner"><{$xoops_banner}></div>
+				<{/if}>
+				
+				<{if $xoops_clblocks || $xoops_crblocks }>
+						<div id="cl_cr_wrap">
+							<dl id="centerLcolumn">
+								<{foreach item=block from=$xoops_clblocks}>
+									<{if ! $block.title|strstr:"none"}>
+										<div class="blockTitle_wrap">
+											<dt class="blockTitle"><{$block.title}></dt>
+										</div>
+									<{/if}>
+									<div class="blockContent_wrap">
+										<dd class="blockContent"><{$block.content}></dd>
+									</div>
+									<hr />
+								<{/foreach}>
+							</dl>
+							<dl id="centerRcolumn">
+								<{foreach item=block from=$xoops_crblocks}>
+									<{if ! $block.title|strstr:"none"}>
+										<div class="blockTitle_wrap">
+											<dt class="blockTitle"><{$block.title}></dt>
+										</div>
+									<{/if}>
+									<div class="blockContent_wrap">
+										<dd class="blockContent"><{$block.content}></dd>
+									</div>
+									<hr />
+								<{/foreach}>
+							</dl>
+						</div>
+				<{/if}>
+				
+				<{if $xoops_showcblock == 1}>
+					<dl id="centerCcolumn">
+						<{foreach item=block from=$xoops_ccblocks}>
+							<{if !$block.title|strstr:"none"}>
+								<div class="blockTitle_wrap">
+									<dt class="blockTitle"><{$block.title}></dt>
+								</div>
+							<{/if}>
+							<div class="blockContent_wrap">
+								<dd class="blockContent"><{$block.content}></dd>
+							</div>
+							<hr />
+						<{/foreach}>
+					</dl>
+				<{/if}>
+							
+				<{if $xoops_contents}>
+					<div id="content_wrap">
+						<div id="content"><{$xoops_contents}></div>
+					</div>
+				<{/if}>
+				
+				<p class="scroll"><a href="#top"><img src="<{$xoops_imageurl}>image/none.gif" width="39" height="14" alt="up top" /></a></p>
+			</div>
+			<{if $xoops_showlblock || $xoops_showrblock}>
+				<div class="l_r_column_wrap">
+					<{if $xoops_showlblock == 1}>
+						<dl id="leftcolumn">
+							<{foreach item=block from=$xoops_lblocks}>
+								<{if ! $block.title|strstr:"none"}>
+									<div class="blockTitle_wrap<{cycle values="0,1,2,3,4"}>">
+										<dt class="blockTitle"><{$block.title}></dt>
+									</div>
+								<{/if}>
+								<div class="blockContent_wrap">
+									<dd class="blockContent"><{$block.content}></dd>
+								</div>
+								<hr />
+							<{/foreach}>
+						</dl>
+					<{/if}>
+					<{if $xoops_showrblock == 1}>
+						<dl id="rightcolumn">
+							<{foreach item=block from=$xoops_rblocks}>
+								<{if ! $block.title|strstr:"none"}>
+									<div class="blockTitle_wrap<{cycle values="4,3,2,1,0"}>">
+										<dt class="blockTitle"><{$block.title}></dt>
+									</div>
+								<{/if}>
+								<div class="blockContent_wrap">
+									<dd class="blockContent"><{$block.content}></dd>
+								</div>
+								<hr />
+							<{/foreach}>
+						</dl>
+					<{/if}>
+				</div>
+			<{/if}>
+
+		</div>
+		<div class="footerbar_wrap">
+			<p class="footerbar">
+				<{$xoops_footer}>
+			</p>
+			<dl class="footerbar">
+				<dt>Theme Designed by</dt><dd><a href="http://www.expiece.com/html/" target="_blank"><cite>EXTRAFFIC</cite></a></dd>
+			</dl>
+		</div>
+
+	</div>
+</body>
+</html>
